@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<BrowserRouter>
+  <Grid
+    style={
+      Object {
+        "margin": "0px",
+      }
+    }
+  >
+    <GridColumn
+      style={
+        Object {
+          "minHeight": "100vh",
+          "padding": "0px",
+        }
+      }
+      width={16}
+    >
+      <SidebarPushable>
+        <Navbar
+          toggleSidebar={[Function]}
+          visible={true}
+        />
+        <SidebarPusher>
+          <Switch>
+            <Route
+              path="/sorting"
+            >
+              <Sorting
+                toggleSidebar={[Function]}
+              />
+            </Route>
+            <Route
+              path="/pathfinding"
+            >
+              <Pathfinding />
+            </Route>
+            <Route
+              path="/"
+            >
+              <p>
+                Home Page
+              </p>
+            </Route>
+          </Switch>
+        </SidebarPusher>
+      </SidebarPushable>
+    </GridColumn>
+  </Grid>
+</BrowserRouter>
+`;

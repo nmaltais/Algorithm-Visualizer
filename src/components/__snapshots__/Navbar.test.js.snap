@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when closed 1`] = `
+<Fragment>
+  <Transition
+    animation="fade right"
+    duration={700}
+    mountOnShow={true}
+    transitionOnMount={false}
+    unmountOnHide={false}
+    visible={false}
+  >
+    <Button
+      as="button"
+      icon={true}
+      style={
+        Object {
+          "backgroundColor": "rgb(27, 28, 29)",
+          "borderRadius": "0 4px 4px 0px",
+          "color": "white",
+          "left": "0",
+          "position": "fixed",
+          "top": "10px",
+          "zIndex": 10,
+        }
+      }
+    >
+      <Icon
+        as="i"
+        name="bars"
+      />
+    </Button>
+  </Transition>
+  <Sidebar
+    animation="push"
+    as={[Function]}
+    direction="left"
+    inverted={true}
+    onHidden={[Function]}
+    onVisible={[Function]}
+    style={
+      Object {
+        "zIndex": 20,
+      }
+    }
+    target={
+      Object {
+        "current": Document {
+          "location": Location {
+            "assign": [Function],
+            "hash": "",
+            "host": "localhost",
+            "hostname": "localhost",
+            "href": "http://localhost/",
+            "origin": "http://localhost",
+            "pathname": "/",
+            "port": "",
+            "protocol": "http:",
+            "reload": [Function],
+            "replace": [Function],
+            "search": "",
+            "toString": [Function],
+          },
+        },
+      }
+    }
+    vertical={true}
+    visible={false}
+    width="thin"
+  >
+    <MenuItem>
+      TOPICS
+      <span
+        role="button"
+        style={
+          Object {
+            "float": "right",
+          }
+        }
+        tabIndex={0}
+      >
+        X
+      </span>
+    </MenuItem>
+    <MenuItem>
+      <MenuHeader>
+        Sorting
+      </MenuHeader>
+      <MenuMenu>
+        <MenuItem
+          as={[Function]}
+          name="Insert Sort"
+          to="/sorting/insert-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Bubble Sort"
+          to="/sorting/bubble-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Selection Sort"
+          to="/sorting/selection-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Merge Sort"
+          to="/sorting/merge-sort"
+        />
+      </MenuMenu>
+    </MenuItem>
+    <MenuItem>
+      <MenuHeader>
+        Pathfinding
+      </MenuHeader>
+      <MenuMenu>
+        <MenuItem
+          as={[Function]}
+          name="DFS"
+          to="/pathfinding/DFS"
+        />
+        <MenuItem
+          as={[Function]}
+          name="BFS"
+          to="/pathfinding/BFS"
+        />
+        <MenuItem
+          as={[Function]}
+          name="A Star"
+          to="/pathfinding/a-star"
+        />
+      </MenuMenu>
+    </MenuItem>
+  </Sidebar>
+</Fragment>
+`;
+
+exports[`renders correctly when open 1`] = `
+<Fragment>
+  <Transition
+    animation="fade right"
+    duration={700}
+    mountOnShow={true}
+    transitionOnMount={false}
+    unmountOnHide={false}
+    visible={false}
+  >
+    <Button
+      as="button"
+      icon={true}
+      style={
+        Object {
+          "backgroundColor": "rgb(27, 28, 29)",
+          "borderRadius": "0 4px 4px 0px",
+          "color": "white",
+          "left": "0",
+          "position": "fixed",
+          "top": "10px",
+          "zIndex": 10,
+        }
+      }
+    >
+      <Icon
+        as="i"
+        name="bars"
+      />
+    </Button>
+  </Transition>
+  <Sidebar
+    animation="push"
+    as={[Function]}
+    direction="left"
+    inverted={true}
+    onHidden={[Function]}
+    onVisible={[Function]}
+    style={
+      Object {
+        "zIndex": 20,
+      }
+    }
+    target={
+      Object {
+        "current": Document {
+          "location": Location {
+            "assign": [Function],
+            "hash": "",
+            "host": "localhost",
+            "hostname": "localhost",
+            "href": "http://localhost/",
+            "origin": "http://localhost",
+            "pathname": "/",
+            "port": "",
+            "protocol": "http:",
+            "reload": [Function],
+            "replace": [Function],
+            "search": "",
+            "toString": [Function],
+          },
+        },
+      }
+    }
+    vertical={true}
+    visible={true}
+    width="thin"
+  >
+    <MenuItem>
+      TOPICS
+      <span
+        role="button"
+        style={
+          Object {
+            "float": "right",
+          }
+        }
+        tabIndex={0}
+      >
+        X
+      </span>
+    </MenuItem>
+    <MenuItem>
+      <MenuHeader>
+        Sorting
+      </MenuHeader>
+      <MenuMenu>
+        <MenuItem
+          as={[Function]}
+          name="Insert Sort"
+          to="/sorting/insert-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Bubble Sort"
+          to="/sorting/bubble-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Selection Sort"
+          to="/sorting/selection-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Merge Sort"
+          to="/sorting/merge-sort"
+        />
+      </MenuMenu>
+    </MenuItem>
+    <MenuItem>
+      <MenuHeader>
+        Pathfinding
+      </MenuHeader>
+      <MenuMenu>
+        <MenuItem
+          as={[Function]}
+          name="DFS"
+          to="/pathfinding/DFS"
+        />
+        <MenuItem
+          as={[Function]}
+          name="BFS"
+          to="/pathfinding/BFS"
+        />
+        <MenuItem
+          as={[Function]}
+          name="A Star"
+          to="/pathfinding/a-star"
+        />
+      </MenuMenu>
+    </MenuItem>
+  </Sidebar>
+</Fragment>
+`;
