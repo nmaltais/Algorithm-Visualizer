@@ -13,6 +13,8 @@ exports[`renders correctly when closed 1`] = `
     <Button
       as="button"
       icon={true}
+      id="openSidebarBtn"
+      onClick={[Function]}
       style={
         Object {
           "backgroundColor": "rgb(27, 28, 29)",
@@ -71,6 +73,9 @@ exports[`renders correctly when closed 1`] = `
     <MenuItem>
       TOPICS
       <span
+        id="closeSidebarBtn"
+        onClick={[Function]}
+        onKeyUp={[Function]}
         role="button"
         style={
           Object {
@@ -148,6 +153,8 @@ exports[`renders correctly when open 1`] = `
     <Button
       as="button"
       icon={true}
+      id="openSidebarBtn"
+      onClick={[Function]}
       style={
         Object {
           "backgroundColor": "rgb(27, 28, 29)",
@@ -206,6 +213,9 @@ exports[`renders correctly when open 1`] = `
     <MenuItem>
       TOPICS
       <span
+        id="closeSidebarBtn"
+        onClick={[Function]}
+        onKeyUp={[Function]}
         role="button"
         style={
           Object {

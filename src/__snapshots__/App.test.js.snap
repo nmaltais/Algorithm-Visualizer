@@ -28,9 +28,7 @@ exports[`renders correctly 1`] = `
             <Route
               path="/sorting"
             >
-              <Sorting
-                toggleSidebar={[Function]}
-              />
+              <Sorting />
             </Route>
             <Route
               path="/pathfinding"

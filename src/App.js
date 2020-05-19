@@ -13,7 +13,7 @@ class App extends Component {
     this.state = { visible: true };
   }
 
-  toggleSidebar = () => () => this.setState((prevState) => ({ visible: !prevState.visible }))
+  toggleSidebar = () => this.setState((prevState) => ({ visible: !prevState.visible }))
 
   render() {
     const { visible } = this.state;
@@ -26,7 +26,7 @@ class App extends Component {
               <Sidebar.Pusher>
                 <Switch>
                   <Route path="/sorting">
-                    <Sorting toggleSidebar={this.toggleSidebar} />
+                    <Sorting />
                   </Route>
                   <Route path="/pathfinding">
                     <Pathfinding />

@@ -12,11 +12,15 @@ import { NavLink } from 'react-router-dom';
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { showLittleButton: false };
+    this.state = { showOpenSidebarBtn: false };
   }
 
+  toggleOpenSidebarBtn = () => {
+    this.setState((prevState) => ({ showOpenSidebarBtn: !prevState.showOpenSidebarBtn }));
+  };
+
   render() {
-    const { showLittleButton } = this.state;
+    const { showOpenSidebarBtn } = this.state;
     const { toggleSidebar, visible } = this.props;
 
     const Nav = (props) => (
@@ -27,16 +31,14 @@ class Navbar extends Component {
         activeClassName="active"
       />
     );
-    const toggleLittleButton = () => {
-      this.setState((prevState) => ({ showLittleButton: !prevState.showLittleButton }));
-    };
 
     return (
       <>
-        <Transition visible={showLittleButton} animation="fade right" duration={700}>
+        <Transition visible={showOpenSidebarBtn} animation="fade right" duration={700}>
           <Button
             icon
-            onClick={toggleSidebar('push')}
+            id="openSidebarBtn"
+            onClick={() => toggleSidebar('push')}
             style={{
               backgroundColor: 'rgb(27, 28, 29)', color: 'white', position: 'fixed', left: '0', top: '10px', borderRadius: '0 4px 4px 0px', zIndex: 10,
             }}
@@ -53,18 +55,19 @@ class Navbar extends Component {
           vertical
           width="thin"
           visible={visible}
-          onHidden={toggleLittleButton}
-          onVisible={toggleLittleButton}
+          onHidden={this.toggleOpenSidebarBtn}
+          onVisible={this.toggleOpenSidebarBtn}
           style={{ zIndex: 20 }}
         >
           <Menu.Item>
             TOPICS
             <span
+              id="closeSidebarBtn"
               role="button"
               tabIndex={0}
               style={{ float: 'right' }}
-              onClick={toggleSidebar('push')}
-              onKeyUp={toggleSidebar('push')}
+              onClick={() => toggleSidebar('push')}
+              onKeyUp={() => toggleSidebar('push')}
             >
               X
             </span>
