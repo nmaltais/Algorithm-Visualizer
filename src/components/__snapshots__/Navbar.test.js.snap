@@ -15,17 +15,6 @@ exports[`renders correctly when closed 1`] = `
       icon={true}
       id="openSidebarBtn"
       onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgb(27, 28, 29)",
-          "borderRadius": "0 4px 4px 0px",
-          "color": "white",
-          "left": "0",
-          "position": "fixed",
-          "top": "10px",
-          "zIndex": 10,
-        }
-      }
     >
       <Icon
         as="i"
@@ -94,8 +83,8 @@ exports[`renders correctly when closed 1`] = `
       <MenuMenu>
         <MenuItem
           as={[Function]}
-          name="Insert Sort"
-          to="/sorting/insert-sort"
+          name="Insertion Sort"
+          to="/sorting/insertion-sort"
         />
         <MenuItem
           as={[Function]}
@@ -155,17 +144,6 @@ exports[`renders correctly when open 1`] = `
       icon={true}
       id="openSidebarBtn"
       onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgb(27, 28, 29)",
-          "borderRadius": "0 4px 4px 0px",
-          "color": "white",
-          "left": "0",
-          "position": "fixed",
-          "top": "10px",
-          "zIndex": 10,
-        }
-      }
     >
       <Icon
         as="i"
@@ -234,8 +212,8 @@ exports[`renders correctly when open 1`] = `
       <MenuMenu>
         <MenuItem
           as={[Function]}
-          name="Insert Sort"
-          to="/sorting/insert-sort"
+          name="Insertion Sort"
+          to="/sorting/insertion-sort"
         />
         <MenuItem
           as={[Function]}

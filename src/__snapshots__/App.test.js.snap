@@ -26,9 +26,9 @@ exports[`renders correctly 1`] = `
         <SidebarPusher>
           <Switch>
             <Route
-              path="/sorting"
+              path="/sorting/:alg"
             >
-              <Sorting />
+              <withRouter(SortingClassComponent) />
             </Route>
             <Route
               path="/pathfinding"

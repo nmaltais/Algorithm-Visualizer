@@ -8,6 +8,7 @@ import {
   Icon,
 } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import './Navbar.scss';
 
 class Navbar extends Component {
   constructor(props) {
@@ -27,9 +28,12 @@ class Navbar extends Component {
       <NavLink
         exact
         to={props.to}
-        name={props.name}
+        onClick={props.onClick}
+        className={props.className}
         activeClassName="active"
-      />
+      >
+        {props.children}
+      </NavLink>
     );
 
     return (
@@ -39,9 +43,6 @@ class Navbar extends Component {
             icon
             id="openSidebarBtn"
             onClick={() => toggleSidebar('push')}
-            style={{
-              backgroundColor: 'rgb(27, 28, 29)', color: 'white', position: 'fixed', left: '0', top: '10px', borderRadius: '0 4px 4px 0px', zIndex: 10,
-            }}
           >
             <Icon name="bars" />
           </Button>
@@ -75,7 +76,7 @@ class Navbar extends Component {
           <Menu.Item>
             <Menu.Header>Sorting</Menu.Header>
             <Menu.Menu>
-              <Menu.Item as={Nav} to="/sorting/insert-sort" name="Insert Sort" />
+              <Menu.Item as={Nav} to="/sorting/insertion-sort" name="Insertion Sort" />
               <Menu.Item as={Nav} to="/sorting/bubble-sort" name="Bubble Sort" />
               <Menu.Item as={Nav} to="/sorting/selection-sort" name="Selection Sort" />
               <Menu.Item as={Nav} to="/sorting/merge-sort" name="Merge Sort" />

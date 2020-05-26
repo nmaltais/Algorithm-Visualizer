@@ -27,10 +27,13 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/prop-types": [0, {}],
+        "react/no-array-index-key": "off",
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error"
+        "jest/valid-expect": "error",
+        "max-len": ["error", { "code": 180,"ignoreTrailingComments": true,"ignoreUrls": true,"ignoreRegExpLiterals": true }],
+        "no-console": "off"
     }
 }

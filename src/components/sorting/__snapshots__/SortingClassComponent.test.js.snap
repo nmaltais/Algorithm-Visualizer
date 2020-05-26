@@ -1,0 +1,390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
+<Grid
+  id="container"
+  stackable={true}
+>
+  <GridRow>
+    <GridColumn
+      width={4}
+    >
+      <h1>
+        Bubble Sort
+      </h1>
+      <p>
+        <span>
+          Worst Time: 
+        </span>
+        <span>
+          O(n^2)
+        </span>
+        <br />
+        <span>
+          Avg. Time: 
+        </span>
+        <span>
+          O(n^2)
+        </span>
+        <br />
+        <span>
+          Best Time: 
+        </span>
+        <span>
+          O(n)
+        </span>
+        <br />
+        <span>
+          Space: 
+        </span>
+        <span>
+          O(n)
+        </span>
+      </p>
+    </GridColumn>
+    <GridColumn
+      width={12}
+    >
+      <Button
+        as="button"
+        content="Play"
+        disabled={false}
+        icon="play"
+        id="playBtn"
+        onClick={[Function]}
+      />
+      <Button
+        as="button"
+        content="Reset"
+        icon="repeat"
+        id="resetBtn"
+        onClick={[Function]}
+      />
+       Speed: 
+      <input
+        id="speedSlider"
+        max={100}
+        min={0}
+        onChange={[Function]}
+        type="range"
+        value={80}
+      />
+      80%
+      <br />
+      <br />
+      <span
+        className="bar"
+        key="0"
+        style={
+          Object {
+            "height": "20vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        20
+      </span>
+      <span
+        className="bar"
+        key="1"
+        style={
+          Object {
+            "height": "64vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        64
+      </span>
+      <span
+        className="bar"
+        key="2"
+        style={
+          Object {
+            "height": "23vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        23
+      </span>
+      <span
+        className="bar"
+        key="3"
+        style={
+          Object {
+            "height": "35vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        35
+      </span>
+      <span
+        className="bar"
+        key="4"
+        style={
+          Object {
+            "height": "35vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        35
+      </span>
+      <span
+        className="bar"
+        key="5"
+        style={
+          Object {
+            "height": "75vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        75
+      </span>
+      <span
+        className="bar"
+        key="6"
+        style={
+          Object {
+            "height": "34vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        34
+      </span>
+      <span
+        className="bar"
+        key="7"
+        style={
+          Object {
+            "height": "69vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        69
+      </span>
+      <span
+        className="bar"
+        key="8"
+        style={
+          Object {
+            "height": "76vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        76
+      </span>
+      <span
+        className="bar"
+        key="9"
+        style={
+          Object {
+            "height": "57vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        57
+      </span>
+      <span
+        className="bar"
+        key="10"
+        style={
+          Object {
+            "height": "9vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        9
+      </span>
+      <span
+        className="bar"
+        key="11"
+        style={
+          Object {
+            "height": "67vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        67
+      </span>
+      <span
+        className="bar"
+        key="12"
+        style={
+          Object {
+            "height": "33vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        33
+      </span>
+      <span
+        className="bar"
+        key="13"
+        style={
+          Object {
+            "height": "58vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        58
+      </span>
+      <span
+        className="bar"
+        key="14"
+        style={
+          Object {
+            "height": "7vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        7
+      </span>
+      <span
+        className="bar"
+        key="15"
+        style={
+          Object {
+            "height": "27vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        27
+      </span>
+      <span
+        className="bar"
+        key="16"
+        style={
+          Object {
+            "height": "22vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        22
+      </span>
+      <span
+        className="bar"
+        key="17"
+        style={
+          Object {
+            "height": "56vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        56
+      </span>
+      <span
+        className="bar"
+        key="18"
+        style={
+          Object {
+            "height": "37vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        37
+      </span>
+      <span
+        className="bar"
+        key="19"
+        style={
+          Object {
+            "height": "5vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        5
+      </span>
+      <span
+        className="bar"
+        key="20"
+        style={
+          Object {
+            "height": "79vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        79
+      </span>
+      <span
+        className="bar"
+        key="21"
+        style={
+          Object {
+            "height": "36vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        36
+      </span>
+      <span
+        className="bar"
+        key="22"
+        style={
+          Object {
+            "height": "46vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        46
+      </span>
+      <span
+        className="bar"
+        key="23"
+        style={
+          Object {
+            "height": "65vh",
+            "maxWidth": "50px",
+            "width": "4.166666666666667vh",
+          }
+        }
+      >
+        65
+      </span>
+    </GridColumn>
+  </GridRow>
+</Grid>
+`;
