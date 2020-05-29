@@ -7,7 +7,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
 >
   <GridRow>
     <GridColumn
-      width={4}
+      width={3}
     >
       <h1>
         Bubble Sort
@@ -43,7 +43,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
       </p>
     </GridColumn>
     <GridColumn
-      width={12}
+      width={13}
     >
       <Button
         as="button"
@@ -79,7 +79,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "20vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -92,7 +92,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "64vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -105,7 +105,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "23vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -118,7 +118,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "35vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -131,7 +131,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "35vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -144,7 +144,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "75vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -157,7 +157,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "34vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -170,7 +170,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "69vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -183,7 +183,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "76vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -196,7 +196,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "57vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -209,7 +209,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "9vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -222,7 +222,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "67vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -235,7 +235,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "33vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -248,7 +248,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "58vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -261,7 +261,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "7vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -274,7 +274,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "27vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -287,7 +287,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "22vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -300,7 +300,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "56vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -313,7 +313,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "37vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -326,7 +326,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "5vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -339,7 +339,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "79vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -352,7 +352,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "36vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -365,7 +365,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "46vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
@@ -378,7 +378,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           Object {
             "height": "65vh",
             "maxWidth": "50px",
-            "width": "4.166666666666667vh",
+            "width": "2.2916666666666665vw",
           }
         }
       >
