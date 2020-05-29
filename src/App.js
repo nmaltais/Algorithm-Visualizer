@@ -4,7 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid, Sidebar } from 'semantic-ui-react';
 import Navbar from './components/Navbar';
-import Sorting from './components/sorting/Sorting';
 import Pathfinding from './components/Pathfinding';
 import SortingClassComponent from './components/sorting/SortingClassComponent';
 

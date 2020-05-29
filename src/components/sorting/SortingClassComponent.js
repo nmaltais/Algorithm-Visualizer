@@ -81,7 +81,7 @@ class SortingClassComponent extends Component {
         <span
           key={i}
           ref={ref}
-          style={{ height: `${num}vh`, width: `${100 / this.state.list.length}vh`, maxWidth: '50px' }}
+          style={{ height: `${num}vh`, width: `${((100 * (12 / 16)) - 20) / this.state.list.length}vw`, maxWidth: '50px' }}
           className="bar"
         >
           {num}
@@ -107,7 +107,7 @@ class SortingClassComponent extends Component {
     return (
       <Grid stackable id="container">
         <Grid.Row>
-          <Grid.Column width={4}>
+          <Grid.Column width={3}>
             <h1>{this.state.info.title}</h1>
             <p>
               <span>{'Worst Time: '}</span>
@@ -123,7 +123,7 @@ class SortingClassComponent extends Component {
               <span>{this.state.info.space}</span>
             </p>
           </Grid.Column>
-          <Grid.Column width={12}>
+          <Grid.Column width={13}>
             {this.state.animationState === 'playing'
               ? <Button id="pauseBtn" icon="pause" content="Pause" onClick={() => pauseAnimation(this.timeOut, this.lastRequestID, this.setAnimationState)} />
               : (
