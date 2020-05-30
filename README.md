@@ -1,3 +1,5 @@
+![Node.js CI/CD](https://github.com/nmaltais/Algorithm-Visualizer/workflows/Node.js%20CI/CD/badge.svg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
