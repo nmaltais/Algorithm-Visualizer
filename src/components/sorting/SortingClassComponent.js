@@ -41,7 +41,8 @@ class SortingClassComponent extends Component {
     this.timeOut.current = null;
     this.speedPercentageRef.current = 80;
 
-    this.getAlgOutput(match.params.alg);
+    const alg = match.params.alg ? match.params.alg : 'bubble-sort';
+    this.getAlgOutput(alg);
     this.createBarsFromList();
   }
 

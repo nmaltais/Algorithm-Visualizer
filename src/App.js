@@ -32,7 +32,7 @@ class App extends Component {
                     <Pathfinding />
                   </Route>
                   <Route path="/">
-                    <p>Home Page</p>
+                    <SortingClassComponent />
                   </Route>
                 </Switch>
               </Sidebar.Pusher>

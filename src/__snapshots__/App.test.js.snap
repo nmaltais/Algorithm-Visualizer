@@ -38,9 +38,7 @@ exports[`renders correctly 1`] = `
             <Route
               path="/"
             >
-              <p>
-                Home Page
-              </p>
+              <withRouter(SortingClassComponent) />
             </Route>
           </Switch>
         </SidebarPusher>
