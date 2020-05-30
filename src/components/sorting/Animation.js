@@ -5,14 +5,12 @@ const cursorColor = 'black';
 const compareColor1 = '#ff7961';
 const compareColor2 = '#f44336';
 
-export function playAnimation(currentStep, lastCompared, lastCursorPos, lastRequestID,
+export function playAnimation(currentStep, lastCompared, lastSwapped, lastCursorPos, lastRequestID,
   barRefs, steps, timeOut, speedPercentageRef, setAnimationState) {
-  console.log('playing');
   setAnimationState('playing');
 
   function displayNextStep() {
     const step = steps[currentStep.current];
-
     switch (step.action) {
       case 'compare':
         if (barRefs.current) {
@@ -38,6 +36,7 @@ export function playAnimation(currentStep, lastCompared, lastCursorPos, lastRequ
           barRefs.current[step.j].current.innerText = parseInt(barRefs.current[step.j].current.style.height, 10);
           barRefs.current[step.i].current.style.backgroundColor = barRefs.current[step.j].current.style.backgroundColor;
           barRefs.current[step.j].current.style.backgroundColor = iColor;
+          lastSwapped.current = [step.i, step.j];
         }
         break;
       }
@@ -48,6 +47,15 @@ export function playAnimation(currentStep, lastCompared, lastCursorPos, lastRequ
           }
           barRefs.current[step.pos].current.style.borderTop = `10px solid ${cursorColor}`;
           lastCursorPos.current = step.pos;
+
+          if (lastCompared.current.length > 0) { // Reset colors for last compared columns
+            barRefs.current[lastCompared.current[0]].current.style.backgroundColor = defaultColor;
+            barRefs.current[lastCompared.current[1]].current.style.backgroundColor = defaultColor;
+          }
+          if (lastSwapped.current.length > 0) { // Reset colors for last compared columns
+            barRefs.current[lastSwapped.current[0]].current.style.backgroundColor = defaultColor;
+            barRefs.current[lastSwapped.current[1]].current.style.backgroundColor = defaultColor;
+          }
         }
         break;
       default:
@@ -58,6 +66,7 @@ export function playAnimation(currentStep, lastCompared, lastCursorPos, lastRequ
     if (currentStep.current < steps.length) {
       timeOut.current = setTimeout(() => playAnimation(currentStep,
         lastCompared,
+        lastSwapped,
         lastCursorPos,
         lastRequestID,
         barRefs,
@@ -76,7 +85,6 @@ export function playAnimation(currentStep, lastCompared, lastCursorPos, lastRequ
 
 
 export function pauseAnimation(timeOut, lastRequestID, setAnimationState) {
-  console.log('paused');
   // Stop Animation
   cancelAnimationFrame(lastRequestID.current);
   clearTimeout(timeOut.current);
@@ -91,7 +99,6 @@ function resetbarRefs(barRefs, list) {
   });
 }
 export function resetAnimation(currentStep, timeOut, lastRequestID, barRefs, list, setAnimationState) {
-  console.log('reset');
   setAnimationState('init');
   // Stop Animation
   cancelAnimationFrame(lastRequestID.current);

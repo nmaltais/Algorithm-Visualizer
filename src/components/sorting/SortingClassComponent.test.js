@@ -14,6 +14,15 @@ describe('SortingClassComponent', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should display bubble-sort if no valid path selected', () => {
+    let wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: '' } }} />);
+    expect(wrapper.contains(<h1>Bubble Sort</h1>)).toBeTruthy();
+    wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: {} }} />);
+    expect(wrapper.contains(<h1>Bubble Sort</h1>)).toBeTruthy();
+    wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'qwerty' } }} />);
+    expect(wrapper.contains(<h1>Bubble Sort</h1>)).toBeTruthy();
+  });
+
   it('switches from play to pause and vice-versa', () => {
     const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
     wrapper.find('#playBtn').simulate('click');
@@ -159,9 +168,9 @@ describe('Animation', () => {
 
   it('Sets State to "done" when animation is over', async () => {
     jest.clearAllMocks();
-    const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
+    const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'selection-sort' } }} />);
     wrapper.instance().state.list = [3, 2, 5];
-    wrapper.instance().getAlgOutput('bubble-sort');
+    wrapper.instance().getAlgOutput('selection-sort');
 
     expect(wrapper.instance().state.animationState).toEqual('init');
     wrapper.find('#playBtn').first().simulate('click');

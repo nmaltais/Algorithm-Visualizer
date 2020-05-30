@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Grid } from 'semantic-ui-react';
 import './Sorting.scss';
-import { BubbleSort, InsertionSort } from './sorting-algorithms';
+import { BubbleSort, InsertionSort, SelectionSort } from './sorting-algorithms';
 import { playAnimation, pauseAnimation, resetAnimation } from './Animation';
 
 
@@ -24,6 +24,7 @@ class SortingClassComponent extends Component {
     this.barRefs = React.createRef();
     this.currentStep = React.createRef();
     this.lastCompared = React.createRef();
+    this.lastSwapped = React.createRef();
     this.lastCursorPos = React.createRef();
     this.lastRequestID = React.createRef();
     this.timeOut = React.createRef();
@@ -36,6 +37,7 @@ class SortingClassComponent extends Component {
     this.barRefs.current = [];
     this.currentStep.current = 0;
     this.lastCompared.current = [];
+    this.lastSwapped.current = [];
     this.lastCursorPos.current = null;
     this.lastRequestID.current = null;
     this.timeOut.current = null;
@@ -64,8 +66,11 @@ class SortingClassComponent extends Component {
       case 'insertion-sort':
         algOutput = InsertionSort(this.state.list.slice());
         break;
+      case 'selection-sort':
+        algOutput = SelectionSort(this.state.list.slice());
+        break;
       default:
-        console.log('no-alg');
+        algOutput = BubbleSort(this.state.list.slice());
         break;
     }
     if (algOutput !== null) {
@@ -133,9 +138,11 @@ class SortingClassComponent extends Component {
                   disabled={this.state.animationState === 'done'}
                   icon="play"
                   content="Play"
-                  onClick={() => playAnimation(this.currentStep, this.lastCompared, this.lastCursorPos, this.lastRequestID,
-                    this.barRefs, this.state.steps, this.timeOut, this.speedPercentageRef,
-                    this.setAnimationState)}
+                  onClick={() => {
+                    playAnimation(this.currentStep, this.lastCompared, this.lastSwapped, this.lastCursorPos, this.lastRequestID,
+                      this.barRefs, this.state.steps, this.timeOut, this.speedPercentageRef,
+                      this.setAnimationState);
+                  }}
                 />
               )}
             <Button
