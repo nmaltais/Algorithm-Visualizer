@@ -83,11 +83,6 @@ exports[`renders correctly when closed 1`] = `
       <MenuMenu>
         <MenuItem
           as={[Function]}
-          name="Insertion Sort"
-          to="/sorting/insertion-sort"
-        />
-        <MenuItem
-          as={[Function]}
           name="Bubble Sort"
           to="/sorting/bubble-sort"
         />
@@ -98,8 +93,13 @@ exports[`renders correctly when closed 1`] = `
         />
         <MenuItem
           as={[Function]}
-          name="Merge Sort"
-          to="/sorting/merge-sort"
+          name="Insertion Sort"
+          to="/sorting/insertion-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Quick Sort"
+          to="/sorting/quick-sort"
         />
       </MenuMenu>
     </MenuItem>
@@ -212,11 +212,6 @@ exports[`renders correctly when open 1`] = `
       <MenuMenu>
         <MenuItem
           as={[Function]}
-          name="Insertion Sort"
-          to="/sorting/insertion-sort"
-        />
-        <MenuItem
-          as={[Function]}
           name="Bubble Sort"
           to="/sorting/bubble-sort"
         />
@@ -227,8 +222,13 @@ exports[`renders correctly when open 1`] = `
         />
         <MenuItem
           as={[Function]}
-          name="Merge Sort"
-          to="/sorting/merge-sort"
+          name="Insertion Sort"
+          to="/sorting/insertion-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Quick Sort"
+          to="/sorting/quick-sort"
         />
       </MenuMenu>
     </MenuItem>

@@ -67,323 +67,131 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
         min={0}
         onChange={[Function]}
         type="range"
-        value={80}
+        value={100}
       />
-      80%
+      100%
       <br />
       <br />
-      <span
-        className="bar"
+      <ForwardRef
+        height={2.2916666666666665}
         key="0"
-        style={
-          Object {
-            "height": "20vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        20
-      </span>
-      <span
-        className="bar"
+        num={20}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="1"
-        style={
-          Object {
-            "height": "64vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        64
-      </span>
-      <span
-        className="bar"
+        num={64}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="2"
-        style={
-          Object {
-            "height": "23vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        23
-      </span>
-      <span
-        className="bar"
+        num={23}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="3"
-        style={
-          Object {
-            "height": "35vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        35
-      </span>
-      <span
-        className="bar"
+        num={35}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="4"
-        style={
-          Object {
-            "height": "35vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        35
-      </span>
-      <span
-        className="bar"
+        num={35}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="5"
-        style={
-          Object {
-            "height": "75vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        75
-      </span>
-      <span
-        className="bar"
+        num={75}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="6"
-        style={
-          Object {
-            "height": "34vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        34
-      </span>
-      <span
-        className="bar"
+        num={34}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="7"
-        style={
-          Object {
-            "height": "69vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        69
-      </span>
-      <span
-        className="bar"
+        num={69}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="8"
-        style={
-          Object {
-            "height": "76vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        76
-      </span>
-      <span
-        className="bar"
+        num={76}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="9"
-        style={
-          Object {
-            "height": "57vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        57
-      </span>
-      <span
-        className="bar"
+        num={57}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="10"
-        style={
-          Object {
-            "height": "9vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        9
-      </span>
-      <span
-        className="bar"
+        num={9}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="11"
-        style={
-          Object {
-            "height": "67vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        67
-      </span>
-      <span
-        className="bar"
+        num={67}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="12"
-        style={
-          Object {
-            "height": "33vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        33
-      </span>
-      <span
-        className="bar"
+        num={33}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="13"
-        style={
-          Object {
-            "height": "58vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        58
-      </span>
-      <span
-        className="bar"
+        num={58}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="14"
-        style={
-          Object {
-            "height": "7vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        7
-      </span>
-      <span
-        className="bar"
+        num={7}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="15"
-        style={
-          Object {
-            "height": "27vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        27
-      </span>
-      <span
-        className="bar"
+        num={27}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="16"
-        style={
-          Object {
-            "height": "22vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        22
-      </span>
-      <span
-        className="bar"
+        num={22}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="17"
-        style={
-          Object {
-            "height": "56vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        56
-      </span>
-      <span
-        className="bar"
+        num={56}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="18"
-        style={
-          Object {
-            "height": "37vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        37
-      </span>
-      <span
-        className="bar"
+        num={37}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="19"
-        style={
-          Object {
-            "height": "5vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        5
-      </span>
-      <span
-        className="bar"
+        num={5}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="20"
-        style={
-          Object {
-            "height": "79vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        79
-      </span>
-      <span
-        className="bar"
+        num={79}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="21"
-        style={
-          Object {
-            "height": "36vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        36
-      </span>
-      <span
-        className="bar"
+        num={36}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="22"
-        style={
-          Object {
-            "height": "46vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        46
-      </span>
-      <span
-        className="bar"
+        num={46}
+      />
+      <ForwardRef
+        height={2.2916666666666665}
         key="23"
-        style={
-          Object {
-            "height": "65vh",
-            "maxWidth": "50px",
-            "width": "2.2916666666666665vw",
-          }
-        }
-      >
-        65
-      </span>
+        num={65}
+      />
     </GridColumn>
   </GridRow>
 </Grid>

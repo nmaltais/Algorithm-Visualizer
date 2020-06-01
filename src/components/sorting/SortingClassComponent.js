@@ -5,8 +5,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Grid } from 'semantic-ui-react';
 import './Sorting.scss';
-import { BubbleSort, InsertionSort, SelectionSort } from './sorting-algorithms';
+import {
+  BubbleSort, SelectionSort, InsertionSort, QuickSort,
+} from './sorting-algorithms';
 import { playAnimation, pauseAnimation, resetAnimation } from './Animation';
+import Bar from './Bar';
 
 
 class SortingClassComponent extends Component {
@@ -19,13 +22,14 @@ class SortingClassComponent extends Component {
       info: '',
       steps: [],
       animationState: 'init',
-      speedPercentage: 80,
+      speedPercentage: 100,
     };
-    this.barRefs = React.createRef();
     this.currentStep = React.createRef();
     this.lastCompared = React.createRef();
     this.lastSwapped = React.createRef();
-    this.lastCursorPos = React.createRef();
+    this.lastCursor1Pos = React.createRef();
+    this.lastCursor2Pos = React.createRef();
+    this.lastCursor3Pos = React.createRef();
     this.lastRequestID = React.createRef();
     this.timeOut = React.createRef();
     this.speedPercentageRef = React.createRef();
@@ -34,14 +38,15 @@ class SortingClassComponent extends Component {
   componentDidMount() {
     const { match } = this.props;
 
-    this.barRefs.current = [];
     this.currentStep.current = 0;
     this.lastCompared.current = [];
     this.lastSwapped.current = [];
-    this.lastCursorPos.current = null;
+    this.lastCursor1Pos.current = null;
+    this.lastCursor2Pos.current = null;
+    this.lastCursor3Pos.current = null;
     this.lastRequestID.current = null;
     this.timeOut.current = null;
-    this.speedPercentageRef.current = 80;
+    this.speedPercentageRef.current = 100;
 
     const alg = match.params.alg ? match.params.alg : 'bubble-sort';
     this.getAlgOutput(alg);
@@ -52,7 +57,7 @@ class SortingClassComponent extends Component {
     if (this.props.match.params.alg !== prevProps.match.params.alg) {
       console.log('Route change!');
       this.getAlgOutput(this.props.match.params.alg);
-      resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.barRefs, this.state.list, this.setAnimationState);
+      resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.state.bars, this.state.list, this.setAnimationState);
     }
   }
 
@@ -63,11 +68,14 @@ class SortingClassComponent extends Component {
       case 'bubble-sort':
         algOutput = BubbleSort(this.state.list.slice());
         break;
+      case 'selection-sort':
+        algOutput = SelectionSort(this.state.list.slice());
+        break;
       case 'insertion-sort':
         algOutput = InsertionSort(this.state.list.slice());
         break;
-      case 'selection-sort':
-        algOutput = SelectionSort(this.state.list.slice());
+      case 'quick-sort':
+        algOutput = QuickSort(this.state.list.slice());
         break;
       default:
         algOutput = BubbleSort(this.state.list.slice());
@@ -83,17 +91,7 @@ class SortingClassComponent extends Component {
     const { list } = this.state;
     const localBars = list.map((num, i) => {
       const ref = React.createRef();
-      const bar = (
-        <span
-          key={i}
-          ref={ref}
-          style={{ height: `${num}vh`, width: `${((100 * (12 / 16)) - 20) / this.state.list.length}vw`, maxWidth: '50px' }}
-          className="bar"
-        >
-          {num}
-        </span>
-      );
-      this.barRefs.current.push(ref);
+      const bar = <Bar key={i} ref={ref} num={num} height={((100 * (12 / 16)) - 20) / this.state.list.length} />;
       return bar;
     });
     this.setState({ bars: localBars });
@@ -139,8 +137,8 @@ class SortingClassComponent extends Component {
                   icon="play"
                   content="Play"
                   onClick={() => {
-                    playAnimation(this.currentStep, this.lastCompared, this.lastSwapped, this.lastCursorPos, this.lastRequestID,
-                      this.barRefs, this.state.steps, this.timeOut, this.speedPercentageRef,
+                    playAnimation(this.currentStep, this.lastCompared, this.lastSwapped, this.lastCursor1Pos, this.lastCursor2Pos, this.lastCursor3Pos, this.lastRequestID,
+                      this.state.bars, this.state.steps, this.timeOut, this.speedPercentageRef,
                       this.setAnimationState);
                   }}
                 />
@@ -149,7 +147,7 @@ class SortingClassComponent extends Component {
               id="resetBtn"
               icon="repeat"
               content="Reset"
-              onClick={() => resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.barRefs, this.state.list, this.setAnimationState)}
+              onClick={() => resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.state.bars, this.state.list, this.setAnimationState)}
             />
             {' Speed: '}
             <input

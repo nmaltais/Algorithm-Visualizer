@@ -65,19 +65,19 @@ describe('SortingClassComponent', () => {
     const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
     const mockChangeSpeed = jest.spyOn(wrapper.instance(), 'changeSpeed');
     wrapper.instance().forceUpdate();
-    wrapper.find('#speedSlider').simulate('change', { target: { value: 100 } });
+    wrapper.find('#speedSlider').simulate('change', { target: { value: 69 } });
     expect(mockChangeSpeed).toHaveBeenCalled();
   });
   it('animationSpeed slider changes the state correctly', () => {
     const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
-    expect(wrapper.instance().state.speedPercentage).toEqual(80);
-    expect(wrapper.instance().speedPercentageRef.current).toEqual(80);
+    expect(wrapper.instance().state.speedPercentage).toEqual(100);
+    expect(wrapper.instance().speedPercentageRef.current).toEqual(100);
     wrapper.find('#speedSlider').simulate('change', { target: { value: 20 } });
     expect(wrapper.instance().state.speedPercentage).toEqual(20);
     expect(wrapper.instance().speedPercentageRef.current).toEqual(20);
-    wrapper.find('#speedSlider').simulate('change', { target: { value: 100 } });
-    expect(wrapper.instance().state.speedPercentage).toEqual(100);
-    expect(wrapper.instance().speedPercentageRef.current).toEqual(100);
+    wrapper.find('#speedSlider').simulate('change', { target: { value: 78 } });
+    expect(wrapper.instance().state.speedPercentage).toEqual(78);
+    expect(wrapper.instance().speedPercentageRef.current).toEqual(78);
   });
   it('animation btns trigger correct state changes', () => {
     const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
@@ -107,14 +107,15 @@ describe('Animation', () => {
   it('Updates step count as animation plays', async () => {
     const mockPlayAnimation = jest.spyOn(Animation, 'playAnimation');
     const mockRequestAnimationFrame = jest.spyOn(global, 'requestAnimationFrame');
-    const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
+    const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'quick-sort' } }} />);
+    wrapper.instance().speedPercentageRef.current = 90;
 
     expect(wrapper.instance().currentStep.current).toEqual(0);
     wrapper.find('#playBtn').first().simulate('click');
     expect(mockRequestAnimationFrame).toHaveBeenCalledWith(expect.any(Function));
 
     // Let the animation play for 5 steps and make sure 5 frames have been requested.
-    await new Promise((r) => setTimeout(r, (-20.19 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
+    await new Promise((r) => setTimeout(r, (-20 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
     expect(mockPlayAnimation).toHaveBeenCalledTimes(1);
     expect(mockRequestAnimationFrame).toHaveBeenCalledTimes(5);
     expect(wrapper.instance().currentStep.current).toEqual(5);
@@ -126,19 +127,23 @@ describe('Animation', () => {
   it('Resets the bars', async () => {
     const mockRequestAnimationFrame = jest.spyOn(global, 'requestAnimationFrame');
     const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'insertion-sort' } }} />);
+    wrapper.instance().speedPercentageRef.current = 90;
 
     // Let the animation play for 5 steps.
     wrapper.find('#playBtn').last().simulate('click');
-    await new Promise((r) => setTimeout(r, (-20.19 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
+    await new Promise((r) => setTimeout(r, (-20 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
     expect(mockRequestAnimationFrame).toHaveBeenCalledTimes(5);
     expect(wrapper.instance().currentStep.current).toEqual(5);
 
     // Press reset button and make sure the bars are reset.
     wrapper.find('#resetBtn').first().simulate('click');
     wrapper.instance().state.list.forEach((num, i) => {
-      expect(wrapper.instance().barRefs.current[i].current.style.backgroundColor).toEqual('rgb(139, 212, 214)');
-      expect(wrapper.instance().barRefs.current[i].current.style.height).toEqual(`${num}vh`);
-      expect(wrapper.instance().barRefs.current[i].current.style.borderTop).toEqual('0px');
+      expect(wrapper.instance().state.bars[i].ref.current.style.backgroundColor).toEqual('rgb(116, 172, 255)');
+      expect(wrapper.instance().state.bars[i].ref.current.querySelector('.bar').style.height).toEqual(`${num}vh`);
+      expect(wrapper.instance().state.bars[i].ref.current.querySelector('.barValue').innerText).toEqual(`${num}`);
+      expect(wrapper.instance().state.bars[i].ref.current.querySelector('.cursor1').style.display).toEqual('none');
+      expect(wrapper.instance().state.bars[i].ref.current.querySelector('.cursor2').style.display).toEqual('none');
+      expect(wrapper.instance().state.bars[i].ref.current.querySelector('.cursor3').style.display).toEqual('none');
     });
 
     // Hack: Stop animation so it doesn't conflict with next test
@@ -149,16 +154,17 @@ describe('Animation', () => {
     jest.clearAllMocks();
     const mockRequestAnimationFrame = jest.spyOn(global, 'requestAnimationFrame');
     const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
+    wrapper.instance().speedPercentageRef.current = 90;
 
     // Let the animation play for 5 steps
     wrapper.find('#playBtn').first().simulate('click');
-    await new Promise((r) => setTimeout(r, (-20.19 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
+    await new Promise((r) => setTimeout(r, (-20 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
     expect(mockRequestAnimationFrame).toHaveBeenCalledTimes(5);
     expect(wrapper.instance().currentStep.current).toEqual(5);
 
     // Pause the animation, wait and make sure no more frames having been requested.
     wrapper.find('#pauseBtn').first().simulate('click');
-    await new Promise((r) => setTimeout(r, (-20.19 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
+    await new Promise((r) => setTimeout(r, (-20 * wrapper.instance().speedPercentageRef.current + 2000) * 5));
     expect(mockRequestAnimationFrame).toHaveBeenCalledTimes(5);
     expect(wrapper.instance().currentStep.current).toEqual(5);
 
@@ -169,13 +175,14 @@ describe('Animation', () => {
   it('Sets State to "done" when animation is over', async () => {
     jest.clearAllMocks();
     const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'selection-sort' } }} />);
+    wrapper.instance().speedPercentageRef.current = 80;
     wrapper.instance().state.list = [3, 2, 5];
     wrapper.instance().getAlgOutput('selection-sort');
 
     expect(wrapper.instance().state.animationState).toEqual('init');
     wrapper.find('#playBtn').first().simulate('click');
     expect(wrapper.instance().state.animationState).toEqual('playing');
-    await new Promise((r) => setTimeout(r, (-20.19 * wrapper.instance().speedPercentageRef.current + 2000) * wrapper.instance().state.steps.length));
+    await new Promise((r) => setTimeout(r, (-20 * wrapper.instance().speedPercentageRef.current + 2000) * wrapper.instance().state.steps.length));
     expect(wrapper.instance().state.animationState).toEqual('done');
 
     // Hack: Stop animation so it doesn't conflict with next test

@@ -1,8 +1,9 @@
-.bar {
+.barContainer {
+  margin-top: 60px;
   min-width: 5px;
   display: inline-block;
   clear: none;
-  background-color: rgb(139, 212, 214);
+  background-color: rgb(116, 172, 255);
   margin-right: 2px;
   color: black;
   text-align: center;
@@ -12,6 +13,7 @@
 #container {
   padding: 20px 20px;
 }
+// Speed Slider
 input[type=range] {
   -webkit-appearance: none;
   background: transparent;
@@ -30,4 +32,34 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 6px;
   border: grey solid 1px;
   background: #ccc;
+}
+// Cursors
+
+.cursor1 {
+  height: 15px;
+  line-height: 15px;
+  font-size: 9px;
+  background-color: black;
+  color: white;
+  display: none;
+}
+.cursor2 {
+  height: 15px;
+  line-height: 15px;
+  font-size: 9px;
+  background-color: blue;
+  color: white;
+  display: none;
+}
+.cursor3 {
+  height: 15px;
+  line-height: 15px;
+  font-size: 9px;
+  background-color: red;
+  color: white;
+  display: none;
+}
+.barValue {
+  height: 15px;
+  line-height: 15px;
 }

@@ -76,10 +76,10 @@ class Navbar extends Component {
           <Menu.Item>
             <Menu.Header>Sorting</Menu.Header>
             <Menu.Menu>
-              <Menu.Item as={Nav} to="/sorting/insertion-sort" name="Insertion Sort" />
               <Menu.Item as={Nav} to="/sorting/bubble-sort" name="Bubble Sort" />
               <Menu.Item as={Nav} to="/sorting/selection-sort" name="Selection Sort" />
-              <Menu.Item as={Nav} to="/sorting/merge-sort" name="Merge Sort" />
+              <Menu.Item as={Nav} to="/sorting/insertion-sort" name="Insertion Sort" />
+              <Menu.Item as={Nav} to="/sorting/quick-sort" name="Quick Sort" />
             </Menu.Menu>
           </Menu.Item>
 

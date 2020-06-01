@@ -11,7 +11,7 @@ export function BubbleSort(list) {
   const steps = [];
   let swapped = true;
   let count = 1;
-  steps.push({ action: 'move cursor', pos: list.length - count });
+  steps.push({ action: 'move cursor1', pos: list.length - count, label: 'cur1' });
   while (swapped) {
     swapped = false;
     for (let i = 0; i < list.length - count; i++) {
@@ -23,7 +23,7 @@ export function BubbleSort(list) {
       }
     }
     count += 1;
-    if (list.length - count >= 0) steps.push({ action: 'move cursor', pos: list.length - count });
+    if (list.length - count >= 0) steps.push({ action: 'move cursor1', pos: list.length - count, label: 'cur1' });
   }
   return {
     orderedList: list,
@@ -42,7 +42,7 @@ export function InsertionSort(list) {
   const steps = [];
   list.forEach((el, i) => {
     let j = i;
-    steps.push({ action: 'move cursor', pos: i });
+    steps.push({ action: 'move cursor1', pos: i, label: 'cur1' });
     if (j > 0) steps.push({ action: 'compare', i: j - 1, j });
     while (j > 0 && list[j - 1] > list[j]) {
       swap(j - 1, j, list);
@@ -69,7 +69,7 @@ export function SelectionSort(list) {
   let sortedArrLen = 0;
   while (sortedArrLen < list.length) {
     let cur = sortedArrLen;
-    steps.push({ action: 'move cursor', pos: cur });
+    steps.push({ action: 'move cursor1', pos: cur, label: 'cur1' });
     for (let i = sortedArrLen + 1; i < list.length; i++) {
       steps.push({ action: 'compare', i, j: cur });
       if (list[i] < list[cur]) {
@@ -93,4 +93,86 @@ export function SelectionSort(list) {
   };
 }
 
-export default { BubbleSort, InsertionSort, SelectionSort };
+function partition(list, left, right, pivotIdx, steps) {
+  steps.push({ action: 'move cursor2', pos: left, label: 'low' });
+  steps.push({ action: 'move cursor3', pos: right, label: 'high' });
+  while (left <= right) {
+    steps.push({ action: 'compare', i: left, j: pivotIdx });
+    while (list[left] < list[pivotIdx]) {
+      steps.push({ action: 'compare', i: left, j: pivotIdx });
+      left++;
+      steps.push({ action: 'move cursor2', pos: left, label: 'low' });
+    }
+
+    steps.push({ action: 'compare', i: right, j: pivotIdx });
+    while (list[pivotIdx] < list[right]) {
+      steps.push({ action: 'compare', i: right, j: pivotIdx });
+      right--;
+      steps.push({ action: 'move cursor3', pos: right, label: 'high' });
+    }
+
+    steps.push({ action: 'compare', i: left, j: right });
+    if (left <= right) {
+      swap(left, right, list);
+      steps.push({ action: 'swap', i: left, j: right });
+
+      if (pivotIdx === left) {
+        pivotIdx = right;
+        steps.push({ action: 'move cursor1', pos: pivotIdx, label: 'pivot' });
+      } else if (pivotIdx === right) {
+        pivotIdx = left;
+        steps.push({ action: 'move cursor1', pos: pivotIdx, label: 'pivot' });
+      }
+
+      left++;
+      steps.push({ action: 'move cursor2', pos: left, label: 'low' });
+
+      right--;
+      steps.push({ action: 'move cursor3', pos: right, label: 'high' });
+    }
+  }
+  return left;
+}
+export function QuickSort(list, lowerBound = 0, upperBound = list.length - 1, steps = []) {
+  if (lowerBound >= upperBound) {
+    return {
+      orderedList: list,
+      steps,
+      info: {
+        title: 'Quick Sort',
+        worstTime: 'O(n^2)',
+        bestTime: 'O(n * log(n))',
+        avgTime: 'O(n * log(n))',
+        space: 'O(log(n))',
+      },
+    };
+  }
+  const pivotIdx = Math.floor((lowerBound + upperBound) / 2);
+  steps.push({ action: 'move cursor1', pos: pivotIdx, label: 'pivot' });
+  const index = partition(list, lowerBound, upperBound, pivotIdx, steps);
+
+  // Run recursively on the smallest sub-array to optimize space complexity
+  const leftSubArrayIsSmaller = (index - 1) - lowerBound < upperBound - index;
+  if (leftSubArrayIsSmaller) {
+    QuickSort(list, lowerBound, index - 1, steps);
+    QuickSort(list, index, upperBound, steps);
+  } else {
+    QuickSort(list, index, upperBound, steps);
+    QuickSort(list, lowerBound, index - 1, steps);
+  }
+  return {
+    orderedList: list,
+    steps,
+    info: {
+      title: 'Quick Sort',
+      worstTime: 'O(n^2)',
+      bestTime: 'O(n * log(n))',
+      avgTime: 'O(n * log(n))',
+      space: 'O(log(n))',
+    },
+  };
+}
+
+export default {
+  BubbleSort, InsertionSort, SelectionSort, QuickSort,
+};
