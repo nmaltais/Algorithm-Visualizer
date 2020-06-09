@@ -173,6 +173,80 @@ export function QuickSort(list, lowerBound = 0, upperBound = list.length - 1, st
   };
 }
 
+// Merge Sort
+function merge(list, lo, mid, hi, steps) {
+  const sortedList = [];
+  let i = lo;
+  let j = mid + 1;
+  while (i <= mid && j <= hi) {
+    steps.push({ action: 'move cursor1', pos: i, label: 'left' });
+    steps.push({ action: 'move cursor2', pos: j, label: 'right' });
+    steps.push({ action: 'compare', i, j });
+
+    if (list[i] <= list[j]) {
+      steps.push({ action: 'move cursor3', pos: lo + sortedList.length, label: 'sort' });
+      sortedList.push(list[i]);
+      steps.push({ action: 'replace', pos: lo + sortedList.length - 1, value: list[i] });
+      i++;
+    } else {
+      steps.push({ action: 'move cursor3', pos: lo + sortedList.length, label: 'sort' });
+      sortedList.push(list[j]);
+      steps.push({ action: 'replace', pos: lo + sortedList.length - 1, value: list[j] });
+      j++;
+    }
+  }
+  while (i <= mid) {
+    steps.push({ action: 'move cursor1', pos: i, label: 'left' });
+    steps.push({ action: 'compare', i, j: i });
+    steps.push({ action: 'move cursor3', pos: lo + sortedList.length, label: 'sort' });
+    sortedList.push(list[i]);
+    steps.push({ action: 'replace', pos: lo + sortedList.length - 1, value: list[i] });
+    i++;
+  }
+  while (j <= hi) {
+    steps.push({ action: 'move cursor2', pos: j, label: 'right' });
+    steps.push({ action: 'compare', i: j, j });
+    steps.push({ action: 'move cursor3', pos: lo + sortedList.length, label: 'sort' });
+    sortedList.push(list[j]);
+    steps.push({ action: 'replace', pos: lo + sortedList.length - 1, value: list[j] });
+    j++;
+  }
+  for (let k = lo; k <= hi; k++) {
+    list[k] = sortedList[k - lo];
+  }
+}
+export function MergeSort(list, lo = 0, hi = list.length - 1, steps = []) {
+  if (lo >= hi) {
+    return {
+      orderedList: list,
+      steps,
+      info: {
+        title: 'Merge Sort',
+        worstTime: 'O(n * log(n))',
+        bestTime: 'O(n * log(n))',
+        avgTime: 'O(n * log(n))',
+        space: 'O(n)',
+      },
+    };
+  }
+  const mid = Math.floor((lo + hi) / 2);
+  MergeSort(list, lo, mid, steps);
+  MergeSort(list, mid + 1, hi, steps);
+  merge(list, lo, mid, hi, steps);
+
+  return {
+    orderedList: list,
+    steps,
+    info: {
+      title: 'Merge Sort',
+      worstTime: 'O(n * log(n))',
+      bestTime: 'O(n * log(n))',
+      avgTime: 'O(n * log(n))',
+      space: 'O(n)',
+    },
+  };
+}
+
 export default {
-  BubbleSort, InsertionSort, SelectionSort, QuickSort,
+  BubbleSort, InsertionSort, SelectionSort, QuickSort, MergeSort,
 };

@@ -119,6 +119,12 @@ export function playAnimation(currentStep, lastCompared, lastSwapped, lastCursor
           }
         }
         break;
+      case 'replace':
+        if (bars) {
+          bars[step.pos].ref.current.querySelector('.barValue').innerText = parseInt(step.value, 10);
+          bars[step.pos].ref.current.querySelector('.bar').style.height = `${step.value}vh`;
+        }
+        break;
       default:
         console.log('default case');
         break;

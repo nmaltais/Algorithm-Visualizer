@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { Button, Grid } from 'semantic-ui-react';
 import './Sorting.scss';
 import {
-  BubbleSort, SelectionSort, InsertionSort, QuickSort,
+  BubbleSort, SelectionSort, InsertionSort, QuickSort, MergeSort,
 } from './sorting-algorithms';
 import { playAnimation, pauseAnimation, resetAnimation } from './Animation';
 import Bar from './Bar';
@@ -76,6 +76,9 @@ class SortingClassComponent extends Component {
         break;
       case 'quick-sort':
         algOutput = QuickSort(this.state.list.slice());
+        break;
+      case 'merge-sort':
+        algOutput = MergeSort(this.state.list.slice());
         break;
       default:
         algOutput = BubbleSort(this.state.list.slice());

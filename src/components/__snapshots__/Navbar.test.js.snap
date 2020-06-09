@@ -101,6 +101,11 @@ exports[`renders correctly when closed 1`] = `
           name="Quick Sort"
           to="/sorting/quick-sort"
         />
+        <MenuItem
+          as={[Function]}
+          name="Merge Sort"
+          to="/sorting/merge-sort"
+        />
       </MenuMenu>
     </MenuItem>
     <MenuItem>
@@ -229,6 +234,11 @@ exports[`renders correctly when open 1`] = `
           as={[Function]}
           name="Quick Sort"
           to="/sorting/quick-sort"
+        />
+        <MenuItem
+          as={[Function]}
+          name="Merge Sort"
+          to="/sorting/merge-sort"
         />
       </MenuMenu>
     </MenuItem>
