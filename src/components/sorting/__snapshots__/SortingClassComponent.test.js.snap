@@ -69,7 +69,30 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
         type="range"
         value={100}
       />
-      100%
+       100%
+      <br />
+       Number of Values: 
+      <input
+        id="listLengthSlider"
+        max={50}
+        min={3}
+        onChange={[Function]}
+        type="range"
+        value={24}
+      />
+       24
+      <Button
+        as="button"
+        content="New Random Set"
+        icon="random"
+        id="newRandomSet"
+        onClick={[Function]}
+        style={
+          Object {
+            "margin": "0px 10px",
+          }
+        }
+      />
       <br />
       <br />
       <ForwardRef

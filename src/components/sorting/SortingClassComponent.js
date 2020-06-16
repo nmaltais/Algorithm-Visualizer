@@ -23,6 +23,7 @@ class SortingClassComponent extends Component {
       steps: [],
       animationState: 'init',
       speedPercentage: 100,
+      listLength: 24,
     };
     this.currentStep = React.createRef();
     this.lastCompared = React.createRef();
@@ -48,16 +49,22 @@ class SortingClassComponent extends Component {
     this.timeOut.current = null;
     this.speedPercentageRef.current = 100;
 
-    const alg = match.params.alg ? match.params.alg : 'bubble-sort';
+    const alg = !match.params || !match.params.alg ? 'bubble-sort' : match.params.alg; // Default to bubble-sort
     this.getAlgOutput(alg);
     this.createBarsFromList();
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.alg !== prevProps.match.params.alg) {
+  componentDidUpdate(prevProps, prevState) {
+    const { match } = this.props;
+    const alg = !match.params || !match.params.alg ? 'bubble-sort' : match.params.alg; // Default to bubble-sort
+    if (match.params && match.params.alg !== prevProps.match.params.alg) {
       console.log('Route change!');
-      this.getAlgOutput(this.props.match.params.alg);
+      this.getAlgOutput(alg);
       resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.state.bars, this.state.list, this.setAnimationState);
+    }
+    if (this.state.list !== prevState.list) {
+      this.getAlgOutput(alg);
+      this.createBarsFromList();
     }
   }
 
@@ -109,6 +116,15 @@ class SortingClassComponent extends Component {
     this.setState({ speedPercentage: e.target.value });
   }
 
+  generateRandomBars = (amount) => {
+    const list = [];
+    for (let i = 0; i < amount; i++) {
+      // Get random number between 80 and 5
+      const num = Math.floor(Math.random() * (80 - 3 + 1)) + 3;
+      list.push(num);
+    }
+    this.setState({ list });
+  }
 
   render() {
     return (
@@ -161,7 +177,31 @@ class SortingClassComponent extends Component {
               value={this.state.speedPercentage}
               onChange={this.changeSpeed}
             />
-            {`${this.state.speedPercentage}%`}
+            {` ${this.state.speedPercentage}%`}
+            <br />
+            {' Number of Values: '}
+            <input
+              id="listLengthSlider"
+              type="range"
+              min={3}
+              max={50}
+              value={this.state.listLength}
+              onChange={(e) => {
+                this.setState({ listLength: e.target.value });
+                this.generateRandomBars(e.target.value);
+              }}
+            />
+            {` ${this.state.listLength}`}
+            <Button
+              id="newRandomSet"
+              icon="random"
+              content="New Random Set"
+              onClick={() => {
+                resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.state.bars, this.state.list, this.setAnimationState);
+                this.generateRandomBars(this.state.listLength);
+              }}
+              style={{ margin: '0px 10px' }}
+            />
             <br />
             <br />
             {this.state.bars}

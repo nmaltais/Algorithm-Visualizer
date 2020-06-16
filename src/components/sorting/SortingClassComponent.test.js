@@ -14,6 +14,15 @@ describe('SortingClassComponent', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('defaults to bubble-sort', () => {
+    const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'something' } }} />);
+    const mockGetAlgOutput = jest.spyOn(wrapper.instance(), 'getAlgOutput');
+    wrapper.setProps({ match: { params: { } } });
+    expect(mockGetAlgOutput).toHaveBeenCalledWith('bubble-sort');
+    wrapper.setProps({ match: { } });
+    expect(mockGetAlgOutput).toHaveBeenCalledWith('bubble-sort');
+  });
+
   it('should display bubble-sort if no valid path selected', () => {
     let wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: '' } }} />);
     expect(wrapper.contains(<h1>Bubble Sort</h1>)).toBeTruthy();
@@ -78,6 +87,22 @@ describe('SortingClassComponent', () => {
     wrapper.find('#speedSlider').simulate('change', { target: { value: 78 } });
     expect(wrapper.instance().state.speedPercentage).toEqual(78);
     expect(wrapper.instance().speedPercentageRef.current).toEqual(78);
+  });
+  it('listLengthSlider slider change calls generateRandomBars', () => {
+    const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'merge-sort' } }} />);
+    const mockGenerateRandomBars = jest.spyOn(wrapper.instance(), 'generateRandomBars');
+    wrapper.instance().forceUpdate();
+    wrapper.find('#listLengthSlider').simulate('change', { target: { value: 40 } });
+    expect(mockGenerateRandomBars).toHaveBeenCalled();
+  });
+  it('listLengthSlider slider changes the state & bars correctly', () => {
+    const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'insertion-sort' } }} />);
+    wrapper.find('#listLengthSlider').simulate('change', { target: { value: 40 } });
+    expect(wrapper.instance().state.listLength).toEqual(40);
+    expect(wrapper.instance().state.bars).toHaveLength(40);
+    wrapper.find('#listLengthSlider').simulate('change', { target: { value: 3 } });
+    expect(wrapper.instance().state.listLength).toEqual(3);
+    expect(wrapper.instance().state.bars).toHaveLength(3);
   });
   it('animation btns trigger correct state changes', () => {
     const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'bubble-sort' } }} />);
@@ -148,6 +173,16 @@ describe('Animation', () => {
 
     // Hack: Stop animation so it doesn't conflict with next test
     wrapper.find('#resetBtn').first().simulate('click');
+  });
+
+  it('Generates random bars', async () => {
+    const wrapper = mount(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'merge-sort' } }} />);
+
+    const barsBefore = wrapper.instance().state.bars;
+    wrapper.find('#newRandomSet').last().simulate('click');
+    const barsAfter = wrapper.instance().state.bars;
+    expect(barsAfter).toHaveLength(barsBefore.length);
+    expect(barsAfter).not.toEqual(barsBefore);
   });
 
   it('Pauses the animation', async () => {
