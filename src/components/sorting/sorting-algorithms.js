@@ -34,6 +34,21 @@ export function BubbleSort(list) {
       bestTime: 'O(n)',
       avgTime: 'O(n^2)',
       space: 'O(n)',
+      pseudoCode: `function BubbleSort(list) {
+  swapped = true;
+  count = 1;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < list.length - count; i++) {
+      if (list[i] > list[i + 1]) {
+        swapped = true;
+        swap(i, i + 1, list);
+      }
+    }
+    count += 1;
+  }
+  return list;
+}`,
     },
   };
 }
@@ -60,6 +75,17 @@ export function InsertionSort(list) {
       bestTime: 'O(n)',
       avgTime: 'O(n^2)',
       space: 'O(n)',
+      pseudoCode: `function InsertionSort(list) {
+  const steps = [];
+  list.forEach((el, i) => {
+    let j = i;
+    while (j > 0 && list[j - 1] > list[j]) {
+      swap(j - 1, j, list);
+      j--;
+    }
+  });
+  return list;
+}`,
     },
   };
 }
@@ -89,6 +115,24 @@ export function SelectionSort(list) {
       bestTime: 'O(n^2)',
       avgTime: 'O(n^2)',
       space: 'O(1)',
+      pseudoCode: `function SelectionSort(list) {
+  const steps = [];
+  let sortedArrLen = 0;
+  while (sortedArrLen < list.length) {
+    let cur = sortedArrLen;
+    steps.push({ action: 'move cursor1', pos: cur, label: 'cur1' });
+    for (let i = sortedArrLen + 1; i < list.length; i++) {
+      steps.push({ action: 'compare', i, j: cur });
+      if (list[i] < list[cur]) {
+        cur = i;
+      }
+    }
+    swap(sortedArrLen, cur, list);
+    steps.push({ action: 'swap', i: sortedArrLen, j: cur });
+    sortedArrLen++;
+  }
+  return list;
+}`,
     },
   };
 }
@@ -169,6 +213,48 @@ export function QuickSort(list, lowerBound = 0, upperBound = list.length - 1, st
       bestTime: 'O(n * log(n))',
       avgTime: 'O(n * log(n))',
       space: 'O(log(n))',
+      pseudoCode: `function QuickSort(list, lowerBound = 0, upperBound = list.length - 1,) {
+  if (lowerBound >= upperBound) {
+    return list;
+  }
+  const pivotIdx = Math.floor((lowerBound + upperBound) / 2);
+  const index = partition(list, lowerBound, upperBound, pivotIdx);
+
+  // Run recursively on the smallest sub-array to optimize space complexity
+  const leftSubArrayIsSmaller = (index - 1) - lowerBound < upperBound - index;
+  if (leftSubArrayIsSmaller) {
+    QuickSort(list, lowerBound, index - 1, steps);
+    QuickSort(list, index, upperBound, steps);
+  } else {
+    QuickSort(list, index, upperBound, steps);
+    QuickSort(list, lowerBound, index - 1, steps);
+  }
+  return list;
+}
+      
+function partition(list, left, right, pivotIdx) {
+  while (left <= right) {
+    while (list[left] < list[pivotIdx]) {
+      left++;
+    }
+
+    while (list[pivotIdx] < list[right]) {
+      right--;
+    }
+
+    if (left <= right) {
+      swap(left, right, list);
+      if (pivotIdx === left) {
+        pivotIdx = right;
+      } else if (pivotIdx === right) {
+        pivotIdx = left;
+      }
+      left++;
+      right--;
+    }
+  }
+  return left;
+}`,
     },
   };
 }
@@ -226,6 +312,7 @@ export function MergeSort(list, lo = 0, hi = list.length - 1, steps = []) {
         bestTime: 'O(n * log(n))',
         avgTime: 'O(n * log(n))',
         space: 'O(n)',
+        pseudoCode: '',
       },
     };
   }
@@ -243,6 +330,43 @@ export function MergeSort(list, lo = 0, hi = list.length - 1, steps = []) {
       bestTime: 'O(n * log(n))',
       avgTime: 'O(n * log(n))',
       space: 'O(n)',
+      pseudoCode: `function MergeSort(list, lo = 0, hi = list.length - 1) {
+  if (lo >= hi) {
+    return list;
+  }
+  const mid = Math.floor((lo + hi) / 2);
+  MergeSort(list, lo, mid);
+  MergeSort(list, mid + 1, hi);
+  merge(list, lo, mid, hi);
+
+  return list;
+}
+
+function merge(list, lo, mid, hi) {
+  const sortedList = [];
+  let i = lo;
+  let j = mid + 1;
+  while (i <= mid && j <= hi) {
+    if (list[i] <= list[j]) {
+      sortedList.push(list[i]);
+      i++;
+    } else {
+      sortedList.push(list[j]);
+      j++;
+    }
+  }
+  while (i <= mid) {
+    sortedList.push(list[i]);
+    i++;
+  }
+  while (j <= hi) {
+    sortedList.push(list[j]);
+    j++;
+  }
+  for (let k = lo; k <= hi; k++) {
+    list[k] = sortedList[k - lo];
+  }
+}`,
     },
   };
 }

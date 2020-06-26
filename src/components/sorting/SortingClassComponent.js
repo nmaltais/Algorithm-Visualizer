@@ -130,7 +130,7 @@ class SortingClassComponent extends Component {
     return (
       <Grid stackable id="container">
         <Grid.Row>
-          <Grid.Column width={3}>
+          <Grid.Column width={4}>
             <h1>{this.state.info.title}</h1>
             <p>
               <span>{'Worst Time: '}</span>
@@ -145,8 +145,11 @@ class SortingClassComponent extends Component {
               <span>{'Space: '}</span>
               <span>{this.state.info.space}</span>
             </p>
+            <pre>
+              {this.state.info.pseudoCode}
+            </pre>
           </Grid.Column>
-          <Grid.Column width={13}>
+          <Grid.Column width={12}>
             {this.state.animationState === 'playing'
               ? <Button id="pauseBtn" icon="pause" content="Pause" onClick={() => pauseAnimation(this.timeOut, this.lastRequestID, this.setAnimationState)} />
               : (
@@ -187,6 +190,7 @@ class SortingClassComponent extends Component {
               max={50}
               value={this.state.listLength}
               onChange={(e) => {
+                resetAnimation(this.currentStep, this.timeOut, this.lastRequestID, this.state.bars, this.state.list, this.setAnimationState);
                 this.setState({ listLength: e.target.value });
                 this.generateRandomBars(e.target.value);
               }}

@@ -63,3 +63,20 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 15px;
   line-height: 15px;
 }
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 0.5em;
+  display: block;
+  word-wrap: break-word;
+}
