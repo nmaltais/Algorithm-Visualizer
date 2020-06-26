@@ -7,7 +7,7 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
 >
   <GridRow>
     <GridColumn
-      width={3}
+      width={4}
     >
       <h1>
         Bubble Sort
@@ -41,9 +41,26 @@ exports[`SortingClassComponent renders bubble-sort correctly 1`] = `
           O(n)
         </span>
       </p>
+      <pre>
+        function BubbleSort(list) {
+  swapped = true;
+  count = 1;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i &lt; list.length - count; i++) {
+      if (list[i] &gt; list[i + 1]) {
+        swapped = true;
+        swap(i, i + 1, list);
+      }
+    }
+    count += 1;
+  }
+  return list;
+}
+      </pre>
     </GridColumn>
     <GridColumn
-      width={13}
+      width={12}
     >
       <Button
         as="button"

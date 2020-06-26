@@ -182,13 +182,6 @@ export function QuickSort(list, lowerBound = 0, upperBound = list.length - 1, st
     return {
       orderedList: list,
       steps,
-      info: {
-        title: 'Quick Sort',
-        worstTime: 'O(n^2)',
-        bestTime: 'O(n * log(n))',
-        avgTime: 'O(n * log(n))',
-        space: 'O(log(n))',
-      },
     };
   }
   const pivotIdx = Math.floor((lowerBound + upperBound) / 2);
@@ -306,14 +299,6 @@ export function MergeSort(list, lo = 0, hi = list.length - 1, steps = []) {
     return {
       orderedList: list,
       steps,
-      info: {
-        title: 'Merge Sort',
-        worstTime: 'O(n * log(n))',
-        bestTime: 'O(n * log(n))',
-        avgTime: 'O(n * log(n))',
-        space: 'O(n)',
-        pseudoCode: '',
-      },
     };
   }
   const mid = Math.floor((lo + hi) / 2);
