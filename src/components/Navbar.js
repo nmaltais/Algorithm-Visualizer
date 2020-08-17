@@ -87,11 +87,16 @@ class Navbar extends Component {
           <Menu.Item>
             <Menu.Header>Pathfinding</Menu.Header>
             <Menu.Menu>
-              <Menu.Item as={Nav} to="/pathfinding/DFS" name="DFS" />
               <Menu.Item as={Nav} to="/pathfinding/BFS" name="BFS" />
-              <Menu.Item as={Nav} to="/pathfinding/a-star" name="A Star" />
+              {/* <Menu.Item as={Nav} to="/pathfinding/a_star" name="A Star" /> */}
             </Menu.Menu>
           </Menu.Item>
+          {/* <Menu.Item>
+            <Menu.Header>Machine Learning</Menu.Header>
+            <Menu.Menu>
+              <Menu.Item as={Nav} to="/machinelearning/linear-regression" name="Linear Regression" />
+            </Menu.Menu>
+          </Menu.Item> */}
         </Sidebar>
       </>
     );

@@ -1,0 +1,46 @@
+.cell {
+  height: 40px;
+  max-height: 40px;
+  min-height: 10px;
+  width: 40px;
+  max-width: 40px;
+  min-width: 10px;
+  border: 1px solid rgba($color: white, $alpha: 0.2);
+  display: inline-block;
+  font-size: 10px;
+}
+.cell:hover{
+  border: 1px solid red;
+  z-index: 10;
+}
+.empty {
+  background-color: black;
+}
+.wall {
+  background-color: grey;
+}
+.visited {
+  border: 1px solid #ccc !important;
+  background-color: white !important;
+}
+.visiting {
+  border: 1px solid black !important;
+  background-color: red !important;
+}
+.path {
+  background-color: gold !important;
+}
+.treasure {
+  position: relative !important;
+  top: -15px !important;
+  margin-bottom: -15px !important;
+  background-color: black;
+  border: 1px solid green;
+}
+.player {
+  position: relative !important;
+  top: -16px !important;
+  margin-bottom: -16px !important;
+  background-color: black;
+  border: 1px solid blue !important;
+}

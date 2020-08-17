@@ -1,0 +1,9 @@
+#pathfinding_items .item {
+  margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+}
+.item.selected {
+  border: 2px solid red;
+}

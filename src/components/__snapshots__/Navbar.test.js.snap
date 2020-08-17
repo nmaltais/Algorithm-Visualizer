@@ -115,18 +115,8 @@ exports[`renders correctly when closed 1`] = `
       <MenuMenu>
         <MenuItem
           as={[Function]}
-          name="DFS"
-          to="/pathfinding/DFS"
-        />
-        <MenuItem
-          as={[Function]}
           name="BFS"
           to="/pathfinding/BFS"
-        />
-        <MenuItem
-          as={[Function]}
-          name="A Star"
-          to="/pathfinding/a-star"
         />
       </MenuMenu>
     </MenuItem>
@@ -249,18 +239,8 @@ exports[`renders correctly when open 1`] = `
       <MenuMenu>
         <MenuItem
           as={[Function]}
-          name="DFS"
-          to="/pathfinding/DFS"
-        />
-        <MenuItem
-          as={[Function]}
           name="BFS"
           to="/pathfinding/BFS"
-        />
-        <MenuItem
-          as={[Function]}
-          name="A Star"
-          to="/pathfinding/a-star"
         />
       </MenuMenu>
     </MenuItem>

@@ -14,7 +14,7 @@ describe('SortingClassComponent', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('defaults to bubble-sort', () => {
+  it('sorting defaults to bubble-sort', () => {
     const wrapper = shallow(<SortingClassComponent.WrappedComponent match={{ params: { alg: 'something' } }} />);
     const mockGetAlgOutput = jest.spyOn(wrapper.instance(), 'getAlgOutput');
     wrapper.setProps({ match: { params: { } } });

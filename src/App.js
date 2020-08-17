@@ -4,8 +4,8 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid, Sidebar } from 'semantic-ui-react';
 import Navbar from './components/Navbar';
-import Pathfinding from './components/Pathfinding';
 import SortingClassComponent from './components/sorting/SortingClassComponent';
+import Pathfinding from './components/pathfinding/Pathfinding';
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class App extends Component {
                   <Route path="/sorting/:alg">
                     <SortingClassComponent />
                   </Route>
-                  <Route path="/pathfinding">
+                  <Route path="/pathfinding/:alg">
                     <Pathfinding />
                   </Route>
                   <Route path="/">

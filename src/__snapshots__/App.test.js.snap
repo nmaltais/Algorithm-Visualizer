@@ -31,7 +31,7 @@ exports[`renders correctly 1`] = `
               <withRouter(SortingClassComponent) />
             </Route>
             <Route
-              path="/pathfinding"
+              path="/pathfinding/:alg"
             >
               <Pathfinding />
             </Route>
